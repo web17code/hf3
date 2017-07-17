@@ -2,7 +2,7 @@
   "name": "hf3base",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "李辉",
+  "author": "李辉辉辉辉",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
