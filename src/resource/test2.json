@@ -1,0 +1,6 @@
+{
+  "pics":[
+    {"src":"src/images/1.jpg","name":"图片一"},
+    {"src":"src/images/2.jpg","name":"图片二"}
+  ]
+}

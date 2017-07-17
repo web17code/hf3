@@ -1,0 +1,113 @@
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial,"微软雅黑";
+    font-size: 14px;
+}
+ul,li {
+    list-style: none;
+}
+img {
+    border: none;
+}
+input{outline:none}
+button{
+    outline:none;
+    cursor: pointer;
+}
+/*一般链接*/
+a {
+    text-decoration: none;
+    color: #555;
+}
+/*a:hover {*/
+/*color: #3366ff;*/
+/*}*/
+
+
+main{
+    padding-top:4px;
+    padding-bottom: 4px;
+    background: #156765;
+    display: flex;
+    justify-content: center;
+    min-height: 800px;
+}
+.first-wrapper{
+    width: 1200px;
+    background: #fff;
+    margin: 0 auto;
+    min-height: 800px;
+    display: flex;
+    flex-direction: row;
+}
+.main-left{
+    width: 140px;
+}
+.main-left ul li{
+    margin: 20px 10px;
+    cursor: pointer;
+}
+.main-left ul li a{
+  color: #156765;
+}
+.main-left ul li a.active{
+    color: #2d8cf0;
+}
+/*.main-left ul li a:hover{*/
+/*color: #555;*/
+/*}*/
+
+
+/*.pic>div{*/
+/*margin-left: 10px;*/
+/*display: flex;*/
+/*justify-content: space-between;*/
+/*position: relative;*/
+/*padding: 0 10px;*/
+/*border-bottom: 3px solid #156765;*/
+/*}*/
+.pic{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #666666;
+}
+.pic p{
+    color: #156765;
+    cursor: pointer;
+}
+.pic-bottom{
+    display: flex;
+    justify-content: flex-start;
+    margin:20px 30px;
+}
+.pic-bottom ul{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.add{
+    width: 200px;
+    height: 200px;
+    background: #f2f2f2;
+    text-align: center;
+    line-height: 225px;
+}
+.pic-bottom ul li{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pic-bottom ul li p{
+    margin-top: 10px;
+}
+
+
+
+
+
+
+

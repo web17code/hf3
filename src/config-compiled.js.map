@@ -1,0 +1,1 @@
+{"version":3,"sources":["config.js"],"names":[],"mappings":"AAAA;;;AAGA,IAAI,OAAO,2BAAX;AACA,eAAe;AACX;AADW,CAAf","file":"config-compiled.js","sourcesContent":["/**\n * Created by lihui on 2017/6/13.\n */\nlet host = 'http://192.168.1.111:8080';\nexport default {\n    host\n};"]}
