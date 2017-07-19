@@ -1,1 +1,2 @@
-²âÊÔgitµÄ·ÖÖ§²âÊÔhf3test
+test merge branch 
+this.orgin==master;
