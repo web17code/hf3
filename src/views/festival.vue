@@ -1,6 +1,5 @@
 <style scoped>
     /*节日套装*/
-
     .festival{
         /*height:100%;*/
         width:100%;
@@ -150,6 +149,12 @@
                 title="系统提示">
             <p>{{text3}}</p>
         </Modal>
+        <Modal
+                v-model="isDelete"
+                title="系统提示"
+                @on-ok="deleteFes_ok">
+            <p>您要删除当前节日套装吗</p>
+        </Modal>
     </div>
 
 
@@ -165,6 +170,9 @@
         data () {
             return {
                 open:false,
+                isDelete:false,//确认删除的模态框，false隐藏，true显示
+                delete_index:"",//删除操作需要的参数
+                delete_id:"",//删除操作需要的参数
                 modal2: false,
                 modal3: false,
                 festivals:null,
@@ -187,7 +195,6 @@
                         url: this.getHost+'/json/ThemeFestival_queryForList_selectThemeFestival.json'
                 }).then(function(data){
                     this.festivals = data.data.data;
-                    console.log(this.festivals)
                 },function(error){
                 })
             //})
@@ -212,8 +219,6 @@
                     if(null != this.value2){
                         this.value1 = this.value2
                     }
-                console.log("value1:" + this.value1)
-                console.log("value2:" + this.value2)
                     var that = this;
                     that.$http({
                         method:'GET',
@@ -246,12 +251,21 @@
                 }
             },
             deleteFes(index,id) {
+                this.isDelete = true;
+                this.delete_index = index;
+                this.delete_id = id;
+            },
+            refresh(){
+                history.go(0)
+            },
+            deleteFes_ok:function(){
+                var index = this.delete_index;
+                var id = this.delete_id;
                 this.$http({
                     method:'GET',
                     //后台给的地址
                     url:this.getHost+'/json/ThemeFestival_deleteThemeFestival_deleteThemeFestival.json?id='+id
                 }).then(function(data){
-                    console.log(data+"data.code="+data.code+" data.data.code="+data.data.code )
                     this.modal3 = true;
                     if(data.data.code === "0000"){
                         this.text3 = "删除成功"
@@ -261,9 +275,6 @@
                     }
 
                 })
-            },
-            refresh(){
-                history.go(0)
             }
         },
         computed:{

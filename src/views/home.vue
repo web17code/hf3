@@ -52,6 +52,13 @@
 
 <template id="index">
     <div>
+        <!--确认删除的模态框-->
+        <Modal
+                v-model="showModal"
+                title="删除确认"
+                @on-ok="delete_ok">
+            <p>您确定要删除所选的内容？</p>
+        </Modal>
         <my-header></my-header>
         <div class="first-wrapper">
             <div class="main-left">
@@ -141,13 +148,16 @@
                 isShow:"none",
                 edit:"编辑",
                 host: null,
-                nameDatacenter:nameDatacenter.nameDatacenter
+                now_index:undefined,
+                nameDatacenter:nameDatacenter.nameDatacenter,
+                showModal:false//控制莫态框的显示隐藏
             }
         },
         mounted: function() {
             // 初始化颜色数据
             this.$http.get(
-                        'http://192.168.1.217:8080/datacenter-teacherportal-web/json/Common_getContestPath.json'
+						/* 'http://192.168.1.217:8080/datacenter-teacherportal-web/json/Common_getContestPath.json'本地*/
+                        'https://portal.qpedu.cn/TeacherPortal/json/Common_getContestPath.json'
             ).then(function (data) {
                 var host = data.data.data
                 this.host = host
@@ -182,7 +192,7 @@
 
         },
         methods:{
-            // 删除图片
+            // 显示删除图片的按钮
             deletePic(){
                 if(this.edit === "编辑"){
                     this.isShow = "inline-block";
@@ -194,17 +204,21 @@
             },
             // 确认删除
             deleteThis(index){
-                console.log(index)
+                this.now_index = index;
+                this.showModal=true;//显示
+            },
+            //删除图片
+            delete_ok:function(){
+                //点击确定，执行删除操作
+                var index = this.now_index;
                 let basePK = this.pics[index].themePk;
-                this.pics.splice(index,1);
                 this.$http({
                     method:'GET',
-                    //后台给的地址
                     url:this.host+'/json/Theme_delete_deleteScTheme.json?basePk='+basePK
                 }).then(function(data){
-                    console.log(data)
+                    this.pics.splice(index,1);
                 })
-            }
+            },
         }
     }
 </script>

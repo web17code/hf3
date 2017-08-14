@@ -57,7 +57,9 @@
         },
         mounted: function(){
             this.$http.get(
-                    'http://192.168.1.217:8080/datacenter-teacherportal-web/json/Common_getContestPath.json'
+                    'https://portal.qpedu.cn/TeacherPortal/json/Common_getContestPath.json'
+					/*'http://192.168.1.217:8080/datacenter-teacherportal-web/json/Common_getContestPath.json'*//*本地*/
+
             ).then(function(data){
                 var host = data.data.data
                 this.$http.get(
