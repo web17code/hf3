@@ -1,3 +1,2 @@
 test master
-this.orgin==test branch
 this.orgin==master;
