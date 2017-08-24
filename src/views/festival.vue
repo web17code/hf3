@@ -192,7 +192,7 @@
                 //var that = this;
                 this.$http({
                     method:'GET',
-                        url: this.getHost+'/json/ThemeFestival_queryForList_selectThemeFestival.json'
+                        url: this.getHost+'/json/ThemeFestival_queryForList_selectThemeFestival.json?rand='+ Math.random()
                 }).then(function(data){
                     this.festivals = data.data.data;
                 },function(error){
